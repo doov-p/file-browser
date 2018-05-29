@@ -11,17 +11,27 @@ def main():
 
 def commands(cmd):
     if cmd == "HELP" or cmd == "help":
-        print("""HELP: Display all available commands.
+        print("""
+HELP: Display all available commands.
+General Use:
 CD(dir): Change current directory.
 LS: List all items within current directory.
 PWD: Display current directory.
+
+File Management:
 OPEN(filename): Opens selected file.
 TOUCH(filename): Create a file with given name.
-MKDIR(directory name): Create a directory with given name.
 CP(filename): Duplicate the selected file.
-RM(filename): Delete the selected file. WARNING: THIS ACTION IS IRREVERSIBLE!
+
+Directory Management:
+MKDIR(directory name): Create a directory with given name.
+
+Deletion:
+WARNING: ALL DELETIONS ARE IRREVERSIBLE!
+RM(filename): Delete the selected file.
 RMDIR(directory name): Delete the selected directory (must be empty).
-RM-R(directory name): Delete the selected directory and all it's contents.""");
+RM-R(directory name): Delete the selected directory and all it's contents.
+""");
     if cmd == "CD" or cmd == "cd":
         dir = input("Directory path >> ");
         os.chdir(str(dir));
@@ -46,7 +56,7 @@ RM-R(directory name): Delete the selected directory and all it's contents.""");
 
     if cmd == "CP" or cmd == "cp":
         file = input("Filename >> ");
-        shutil.copyfile(file, file + "(1)");
+        shutil.copyfile(file, "(1)" + file);
 
     if cmd == "RM" or cmd == "rm":
         file = input("Filename >> ");
